@@ -1,13 +1,18 @@
-const express = require('express');
+import express from 'express';
+import {fileURLToPath} from 'url';
+import {dirname, join} from 'path';
+import db from './persistence/index.js';
+import getItems from './routes/getItems.js';
+import addItem from './routes/addItem.js';
+import updateItem from './routes/updateItem.js';
+import deleteItem from './routes/deleteItem.js';
+
 const app = express();
-const db = require('./persistence');
-const getItems = require('./routes/getItems');
-const addItem = require('./routes/addItem');
-const updateItem = require('./routes/updateItem');
-const deleteItem = require('./routes/deleteItem');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(express.json());
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(join(__dirname, 'static')));
 
 app.get('/items', getItems);
 app.post('/items', addItem);

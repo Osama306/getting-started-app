@@ -1,2 +1,5 @@
-if (process.env.MYSQL_HOST) module.exports = require('./mysql');
-else module.exports = require('./sqlite');
+const impl = process.env.MYSQL_HOST
+    ? (await import('./mysql.js')).default
+    : (await import('./sqlite.js')).default;
+
+export default impl;

@@ -2,6 +2,7 @@
   "name": "101-app",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon -L src/index.js"
