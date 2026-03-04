@@ -26,7 +26,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: 
-                ghcr.io/${{ github.repository_owner }}/getting-started-app:latest
-                ghcr.io/${{ github.repository_owner }}/getting-started-app:${{ github.sha }}
-                # Optionally, you can also tag with the commit SHA for versioning
+          tags: |
+              ghcr.io/${{ github.repository_owner }}/getting-started-app:latest
+              ghcr.io/${{ github.repository_owner }}/getting-started-app:${{ github.sha }}
